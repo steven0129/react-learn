@@ -5,7 +5,10 @@ import './index.css';
 class LikeButton extends Component {
     constructor() {
         super()
-        this.state = { isLiked: false }
+        this.state = {
+            name: 'Steven',
+            isLiked: false
+        }
     }
 
     handleClickOnLikeButton() {
