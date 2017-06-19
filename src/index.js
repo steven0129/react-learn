@@ -12,7 +12,9 @@ class LikeButton extends Component {
     }
 
     handleClickOnLikeButton() {
+        console.log(this.state.isLiked)
         this.setState({ isLiked: !this.state.isLiked })
+        console.log(this.state.isLiked)
     }
 
     render() {
