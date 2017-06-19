@@ -4,8 +4,6 @@ import './index.css'
 
 class Card extends Component {
     render() {
-        console.log(this.props.children)
-
         return (
             <div className='card'>
                 <div className='card-content'>
