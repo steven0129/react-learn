@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -9,9 +9,7 @@ class LikeButton extends Component {
     }
 
     handleClickOnLikeButton() {
-        this.setState({
-            isLiked: !this.state.isLiked
-        })
+        this.setState({ isLiked: !this.state.isLiked })
     }
 
     render() {
@@ -23,4 +21,14 @@ class LikeButton extends Component {
     }
 }
 
-ReactDOM.render(<LikeButton />, document.getElementById('root'));
+class Index extends Component {
+    render() {
+        return (
+            <div>
+                <LikeButton />
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<Index />, document.getElementById('root'));
