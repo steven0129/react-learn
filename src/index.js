@@ -6,22 +6,29 @@ class LikeButton extends Component {
     constructor() {
         super()
         this.state = {
+            count: 0,
             name: 'Steven',
             isLiked: false
         }
     }
 
     handleClickOnLikeButton() {
-        console.log(this.state.isLiked)
-        this.setState({ isLiked: !this.state.isLiked })
-        console.log(this.state.isLiked)
+        this.setState((prevState) => {
+            return prevState.count++
+        })
     }
 
     render() {
         return (
-            <button onClick={this.handleClickOnLikeButton.bind(this)}>
-                {this.state.isLiked ? '取消' : '點讚'} 👍
-            </button>
+            <div>
+                <button onClick={this.handleClickOnLikeButton.bind(this)}>
+                    {this.state.count} 👍
+                </button>
+
+                <button onClick={this.handleClickOnLikeButton.bind(this)}>
+                    {this.state.isLiked ? '取消' : '點讚'} 👍
+                </button>
+            </div>
         )
     }
 }
