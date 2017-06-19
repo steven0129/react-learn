@@ -1,8 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import './index.css';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+class Card extends Component {
+    render() {
+        console.log(this.props.children)
+
+        return (
+            <div className='card'>
+                <div className='card-content'>
+                    {this.props.children}
+                </div>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(
+    <Card>
+        <h2>React.js 小书</h2>
+        <div>开源、免费、专业、简单</div>
+        订阅：<input />
+    </Card>,
+    document.getElementById('root')
+)
