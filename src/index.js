@@ -29,7 +29,7 @@ class Index extends Component {
     render() {
         return (
             <div>
-                <LikeButton />
+                <LikeButton likedText='已讚' unlikedText='讚' />
             </div>
         )
     }
