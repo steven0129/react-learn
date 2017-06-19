@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+class HelloWorld extends Component {
+    constructor() {
+        super()
+    }
+
+    sayHi() {
+        alert('Hello World')
+    }
+
+    render() {
+        return (
+            <div onClick={this.sayHi.bind(this)}>Hello World</div>
+        )
+    }
+}
+
+ReactDOM.render(<HelloWorld />, document.getElementById('root'));
