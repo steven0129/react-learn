@@ -9,6 +9,14 @@ class CommentInput extends Component {
         }
     }
 
+    componentWillMount() {
+        this._loadUserName()
+    }
+
+    componentDidMount() {
+        this.textarea.focus()
+    }
+
     handleUserNameChange(e) {
         this.setState({
             userName: e.target.value
@@ -30,6 +38,20 @@ class CommentInput extends Component {
         this.setState({ content: '' })
     }
 
+    handleUserNameBlur(e) {
+        this._saveUserName(e.target.value)
+    }
+
+    _loadUserName() {
+        let userName = localStorage.getItem('userName')
+        if (userName)
+            this.setState({ userName: userName })
+    }
+
+    _saveUserName(userName) {
+        localStorage.setItem('userName', userName)
+    }
+
     render() {
         return (
             <div className='comment-input'>
@@ -38,6 +60,7 @@ class CommentInput extends Component {
                     <div className='comment-field-input'>
                         <input
                             value={this.state.userName}
+                            onBlur={this.handleUserNameBlur.bind(this)}
                             onChange={this.handleUserNameChange.bind(this)} />
                     </div>
                 </div>
@@ -46,6 +69,7 @@ class CommentInput extends Component {
                     <span className='comment-field-name'>內容: </span>
                     <div className='comment-field-input'>
                         <textarea
+                            ref={(textarea) => this.textarea = textarea}
                             value={this.state.content}
                             onChange={this.handleContentChange.bind(this)} />
                     </div>
