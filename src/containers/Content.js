@@ -24,6 +24,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-Content = connect(mapStateToProps)(Content)
-
-export default Content
+export default connect(mapStateToProps)(Content)
